@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block content %}
+{{ catalog.name }}
+            {% for item in items %}
+               <li><a href="{{ url_for('itemDetails', catalog_id = catalog.id ,item_id=item.id) }}"> {{ item.name }}</a></li>
+            {% endfor %}
+    <hr>
+                    <a href='{{url_for('addnewItem', catalog_id =catalog.id ) }}'>Add New Item</a> | <a href='{{url_for('showItemsJSON', catalog_id =catalog.id ) }}'>GetJSONItems</a>
+
+
+{% endblock %}

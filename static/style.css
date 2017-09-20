@@ -1,0 +1,23 @@
+body {
+
+    background-color: #20314c;
+}
+body> .container{
+
+    background-color:#bdbbab ;
+}
+
+
+
+.flash {
+	background-color: #aabdd8;
+	width:100%;
+	text-decoration: none;
+
+}
+
+.flash li {
+	list-style-type: none;
+	text-align: center;
+
+}

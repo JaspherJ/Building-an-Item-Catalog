@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class="col-sm-4 sidenav">
+        <h4>Categories</h4>
+        <ul class="nav">
+            {% for catalog in catalogs %}
+                <li><a href="{{ url_for('showItems', catalog_id = catalog.id) }}">{{ catalog.name }}</a></li>
+            {% endfor %}
+        </ul>
+            <a href="{{ url_for('catalogJSON') }}" class="btn btn-info" role="button">GetJSONCatalog</a>
+    </div>
+   <div class="col-sm-8" style="border-left: 1px solid">
+        <h4>Latest Items</h4>
+
+        <ul class="nav nav-pills nav-stacked">
+            {% for item,catalog in items %}
+                <li><a href="{{ url_for('showItems', catalog_id = item.catalog_id) }}">
+                    {{ item.name }}({{ catalog.name }})
+                </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <br>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% block content %}
+    <form action="{{ url_for('editItems',catalog_id = editValues.catalog_id,item_id =editValues.id) }}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ editValues.name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" class="form-control" id="desc" name="description" value="{{ editValues.description }}"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" class="form-control" id="price" name="price" value="{{ editValues.price }}" required>
+        </div>
+        <div class="form-group" id="catalog">
+            <label for="sel1">Select list:</label>
+            <select name="catalog" class="form-control">
+                {% for catalog in catalogMenu %}
+                    <option value="{{ catalog.id }}">{{ catalog.name }}</option>
+                {% endfor %}
+
+
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <script>
+    $( document ).ready(function() {
+        $("#catalog select").val({{ editValues.catalog_id }});
+    });
+
+    </script>
+
+{% endblock %}

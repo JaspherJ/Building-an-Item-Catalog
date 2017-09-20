@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block content %}
+{{ item.name }}
+               <li><a> {{ item.description }}</a></li>
+    <hr>
+                    <a href='{{url_for('editItems', catalog_id = catalog_id, item_id=item.id ) }}'>Edit</a> |
+                    <a href='{{url_for('deleteItems', catalog_id = catalog_id, item_id=item.id ) }}'>Delete</a> |
+                    <a href='{{url_for('itemDetailsJSON', catalog_id = catalog_id, item_id=item.id ) }}'>GetJSON</a>
+
+
+{% endblock %}
